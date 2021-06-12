@@ -10,6 +10,7 @@ const App = () => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => setArray(json));
+    console.log(array);
       
   }, [])
 
@@ -25,7 +26,7 @@ const App = () => {
     <Counter />
     <section className = 'section'>Heyy</section>
     {array.map(function(item){
-      return <h1>{item.id}</h1>
+      return <h1>{item.title}</h1>
     })}
 
     <Footer />
