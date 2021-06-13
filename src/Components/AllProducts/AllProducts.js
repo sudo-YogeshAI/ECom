@@ -5,14 +5,10 @@ import Card from '../Products/Product'
 import Pagination from '../Pagination/Pagination'
 
 import "../../Assets/YUI3.css"
-import { useParams } from 'react-router-dom'
 
-export default function CatProducts( {props} ){
-    const {category} = useParams();
-    console.log(category);
-
+export default function AllProducts( {props} ){
     const t1 =[];
-    const max = 10;
+    const max = 30;
 
     for (let i=0; i<max; i++){
         t1.push(i);
@@ -24,7 +20,7 @@ export default function CatProducts( {props} ){
     const [sortState, setSortState] = useState('asc');
 
     const getProducts = async() => {
-        await fetch(`https://fakestoreapi.com/products/category/${category}`)
+        await fetch('https://fakestoreapi.com/products')
         .then(res=>res.json())
         .then(json=>setProducts(json))
         setLoaded(true);
@@ -87,7 +83,7 @@ export default function CatProducts( {props} ){
     const sortOnClick = async() =>{
         setCurrentPage(1);
         setLoaded(false);
-        await fetch(`https://fakestoreapi.com/products/category/${category}?sort=${sortState}`)
+        await fetch(`https://fakestoreapi.com/products?sort=${sortState}`)
         .then(res=>res.json())
         .then(json=>setProducts(json))
         setLoaded(true);
@@ -96,17 +92,15 @@ export default function CatProducts( {props} ){
         } else{
             setSortState('asc');
         }
-    };
+    }
     
     
 
     return(
         <>
-        <Heading>
-            {category.substring(0,1).toUpperCase()+category.substring(1)}
-        </Heading>
+        <Heading>All Products</Heading>
         <SubHeading>
-            Showing {Math.min(10,products.length-(currentPage-1)*max)} Out of {products.length} Results
+            Showing {Math.min(max,products.length-(currentPage-1)*max)} Out of {products.length} Results
         </SubHeading>
         <FilterContaineer onClick={sortOnClick}>Sort ({(sortState=='asc') ? 'Ascending' : 'Descending' })</FilterContaineer>
         <FlexBox>
@@ -116,7 +110,7 @@ export default function CatProducts( {props} ){
             <Skeleton key={id}/>
         ))} 
         </>: <>{products.slice((currentPage-1)*max,Math.min(currentPage*max,products.length)).map((id,index) => (
-            <Card key={index} props={{"name":id.title,"cost":`$ ${id.price}`,"img":id.image,"id":id.id,"desc":id.description}} />
+            <Card key={index} props={{"name":id.title,"cost":`$ ${id.price}`,"img":id.image}} />
         ))} </> }
         </FlexBox>
         { (products.length/max)>1 ? <Pagination props={{"active":currentPage,"max":products.length/max,"onClick": paginationOnClick}}/>

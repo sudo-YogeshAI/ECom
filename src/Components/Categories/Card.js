@@ -1,5 +1,6 @@
 import {React} from 'react'
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 
 export default function Card({props}) {
@@ -33,10 +34,12 @@ export default function Card({props}) {
 
     return(
         <>
-        <CardContaineer>
-            <img src={props.img} width="100%" height="100%" />
-            <Name>{props.name.substring(0,1).toUpperCase()+props.name.substring(1)}</Name>
-        </CardContaineer>
+        <Link to={`/category/${props.name}`}>
+            <CardContaineer>
+                <img src={props.img} width="100%" height="100%" />
+                <Name>{props.name.substring(0,1).toUpperCase()+props.name.substring(1)}</Name>
+            </CardContaineer>
+        </Link>
         </>
     );
 }

@@ -1,7 +1,10 @@
-import {React} from 'react'
+import {React, useState } from 'react'
 import styled from 'styled-components'
+import FullProduct from './FullProduct';
 
 export default function ProductCard( {props} ) {
+    const [showFull, setShowFull] = useState(false);
+
     const Card = styled.div`
         margin-left: ${(window.innerWidth>600) ? '20px' : '2.5%'};
         margin-bottom: ${(window.innerWidth>600) ? '60px' : '20px'};
@@ -52,15 +55,22 @@ export default function ProductCard( {props} ) {
         border: black 2px solid;
     `;
 
+    const onClick = () => (setShowFull(true))
+    const onClose = () => (
+        setShowFull(false)
+    )
+
+
     return(
         <>
+        {showFull ? <FullProduct props={{"onClose":onClose,"product":props} } />: <></>}
         <Card>
             <Image><img src={props.img} width="100%" height="100%"/></Image>
             <Text>{props.name}</Text>
             <Price><p>{props.cost}</p></Price>
             <ButtonList>
                 <Button>Add to card</Button>
-                <Button>Learn More</Button>
+                <Button onClick={onClick}>Learn More</Button>
             </ButtonList>
         </Card>
         </>
