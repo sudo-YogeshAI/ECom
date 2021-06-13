@@ -8,7 +8,6 @@ import AllProducts from "./AllProducts/AllProducts";
 function Home() {
   return (
     <div className="home">
-      <Headers />
       <Categories/>
     </div>
   );

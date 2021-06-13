@@ -110,7 +110,7 @@ export default function AllProducts( {props} ){
             <Skeleton key={id}/>
         ))} 
         </>: <>{products.slice((currentPage-1)*max,Math.min(currentPage*max,products.length)).map((id,index) => (
-            <Card key={index} props={{"name":id.title,"cost":`$ ${id.price}`,"img":id.image}} />
+            <Card key={index} props={{"name":id.title,"cost":`$ ${id.price}`,"img":id.image,"id":id.id,"desc":id.description}} />
         ))} </> }
         </FlexBox>
         { (products.length/max)>1 ? <Pagination props={{"active":currentPage,"max":products.length/max,"onClick": paginationOnClick}}/>

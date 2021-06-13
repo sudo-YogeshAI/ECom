@@ -7,12 +7,14 @@ import About from "./Components/About";
 import AllProducts from "./Components/AllProducts/AllProducts";
 import Categories from "./Components/Categories/Categories";
 import CatProducts from "./Components/CatProducts/CatProducts";
+import Headers from "./Components/Header/Header";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Navigation />
+        <Headers />
         <Switch>
           <Route path="/" exact component={() => <Home />} />
           <Route path="/about" exact component={() => <About />} />
