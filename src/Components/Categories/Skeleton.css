@@ -1,0 +1,23 @@
+@keyframes bar {
+    0%{
+        margin-left: 0%;
+    }
+    50%{
+        margin-left: 80%;
+    }
+    100%{
+        margin-left: 0%;
+    }
+}
+
+@keyframes bar2 {
+    0%{
+        margin-left: 0%;
+    }
+    50%{
+        margin-left: 95%;
+    }
+    100%{
+        margin-left: 0%;
+    }
+}
