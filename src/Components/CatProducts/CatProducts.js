@@ -17,6 +17,7 @@ export default function CatProducts( {props} ){
     const [currentPage, setCurrentPage] = useState(1);
     const [products, setProducts] = useState([]);
     const [loaded, setLoaded] = useState(false);
+    const [sortState, setSortState] = useState('asc');
 
     const getProducts = async() => {
         await fetch(`https://fakestoreapi.com/products/category/${props.name}`)
@@ -60,13 +61,38 @@ export default function CatProducts( {props} ){
         flex-wrap: wrap;
         justify-content: space-evenly;
     `;
+    const FilterContaineer = styled.div`
+        width: fit-content;
+        margin-left:auto;
+        margin-right: ${(window.innerWidth>600) ? "100px" : "20px"};
+        margin-bottom: ${(window.innerWidth>600) ? "20px" : "10px"};
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: black 2px solid;
+        cursor: pointer;
+    `;
 
 
-    const PaginationOnClick = (id) => {
+
+    const paginationOnClick = (id) => {
         setCurrentPage(id);
         console.log(id);
         console.log(currentPage)
     };
+
+    const sortOnClick = async() =>{
+        setCurrentPage(1);
+        setLoaded(false);
+        await fetch(`https://fakestoreapi.com/products/category/${props.name}?sort=${sortState}`)
+        .then(res=>res.json())
+        .then(json=>setProducts(json))
+        setLoaded(true);
+        if  (sortState == 'asc'){
+            setSortState('desc');
+        } else{
+            setSortState('asc');
+        }
+    }
     
     
 
@@ -78,6 +104,7 @@ export default function CatProducts( {props} ){
         <SubHeading>
             Showing {Math.min(10,products.length-(currentPage-1)*max)} Out of {products.length} Results
         </SubHeading>
+        <FilterContaineer onClick={sortOnClick}>Sort ({(sortState=='asc') ? 'Ascending' : 'Descending' })</FilterContaineer>
         <FlexBox>
         { (!loaded) ? <>
         {console.log(products)}
@@ -88,7 +115,7 @@ export default function CatProducts( {props} ){
             <Card key={index} props={{"name":id.title,"cost":`$ ${id.price}`,"img":id.image}} />
         ))} </> }
         </FlexBox>
-        { (products.length/max)>1 ? <Pagination props={{"active":currentPage,"max":products.length/max,"onClick": PaginationOnClick}}/>
+        { (products.length/max)>1 ? <Pagination props={{"active":currentPage,"max":products.length/max,"onClick": paginationOnClick}}/>
         : <></>}
         </>
     );
