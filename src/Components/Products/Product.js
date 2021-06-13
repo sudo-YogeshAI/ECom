@@ -9,6 +9,7 @@ export default function ProductCard( {props} ) {
         height: ${(window.innerWidth>600) ? '300px' : (window.innerWidth*1)+'px'};
         padding: ${(window.innerWidth>600) ? '10px' : '5%'};;
         border: black 2px solid;
+        cursor: pointer;
     `;
     const Image = styled.div`
         width: ${(window.innerWidth>600) ? '230px' : '100%'};

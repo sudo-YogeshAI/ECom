@@ -4,6 +4,8 @@ import'./Skeleton.css'
 
 export default function Skeleton(){
     const Card = styled.div`
+    margin-left: ${(window.innerWidth>600) ? '20px' : '2.5%'};
+    margin-bottom: ${(window.innerWidth>600) ? '60px' : '20px'};
     position: relative;
     width: ${(window.innerWidth>600) ? '400px' : '80%'};
     height: ${(window.innerWidth>600) ? '225px' : (window.innerWidth*0.45)+'px'};
