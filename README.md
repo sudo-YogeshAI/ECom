@@ -1,3 +1,26 @@
+## Team - YFA
+# Submitted to IEEE for Hackathon
+
+# Tech Stack
+
+- HTML
+- CSS
+- React
+- Javascript
+
+# Key Features
+
+- All products listed on one page
+- Categories Page also built
+- Products can be listed by their categories
+- Cart is fully functional and prodcuts can be added
+
+# Additional Features
+
+- While data is being fetched and loaded the cards show animation and skeleton structure
+- Order can be directly updated from cart and additions, deletions can be made
+- There are Social Media Icons to enhance Social presence. They are currently not linked due to no socials to link.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
