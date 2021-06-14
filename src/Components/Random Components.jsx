@@ -12,7 +12,7 @@ const App = () => {
       .then((json) => setArray(json));
     console.log(array);
       
-  }, [])
+  }, []);
 
   
             
