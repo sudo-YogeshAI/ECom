@@ -1,12 +1,13 @@
 import React from "react";
+import './Footer.css';
 
 function Footer() {
   return (
     <div className="footer">
-      <footer class="py-5 bg-dark fixed-bottom">
-        <div class="container">
-          <p class="m-0 text-center text-white">
-            Copyright &copy; Vanguard E-Commerce 2021
+      <footer >
+        <div >
+          <p className='text'>
+            Made by Yogesh,Faizan and Aflah for the ieee hackathon.
           </p>
         </div>
       </footer>
