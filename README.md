@@ -1,4 +1,4 @@
-## Team - YFA
+# Team - YFA
 # Submitted to IEEE for Hackathon
 
 # Tech Stack
