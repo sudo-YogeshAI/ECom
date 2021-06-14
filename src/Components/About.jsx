@@ -1,30 +1,46 @@
 import React from "react";
+import './About.css';
 
 function About() {
   return (
+    <div className ='container'>
+      
     <div className="about">
-      <div class="container">
-        <div class="row align-items-center my-5">
-          <div class="col-lg-7">
+      
             <img
-              class="img-fluid rounded mb-4 mb-lg-0"
+              class="image"
               src="https://cdn.statically.io/gh/sudo-YogeshAI/ECom/Yogesh/1612802561-3192.jpg"
               alt=""
             />
           </div>
-          <div class="col-lg-5">
-            <h1 class="font-weight-light">About</h1>
+          <div >
+            <br /><br />
+            <h2 className='About' >Hi! We are Vanguard E-Commerce</h2>
             
-              <h1> Welcome to Vanguard E-Commerce</h1>
+              <br /><br/>
+              <hr />
+              <br /><br/>
+              <section className='More'>
+                <div className='info'>
+                <b>
+                We are More than just an e-commerce site. 
+                </b><br></br>
+                <b>We are a community. We. Are. Family.</b>
+                </div>
+              </section>
+            <div className ='boring'>
+              <ul className='list'>
+                <li>Wide Range of A-grade products</li>
+                <li>From Electronics to jwellery and Clothing</li>
+                <li>State of the art products</li>
+                <li>Seamless and addictive experience</li>
 
-             <p>
-               We provide a wide range of A-grade products ranging from Electronics to jwellery and clothing. We promise our customers state of the art products and an experience so seamless you would want to visit the site for every need.  
-            </p>
+              </ul>
+            
             <p>To start you might wanna view products by category or list all of them at once.</p>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+          </div>
   );
 }
 

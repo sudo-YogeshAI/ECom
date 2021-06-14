@@ -1,0 +1,45 @@
+.image{
+    height: 35vh;
+    border-radius: 30%;
+    
+   
+    padding: 4%;
+    float: right;
+    
+    
+}
+
+.About{
+    font-size:5vh;
+    font-weight: bold;
+    color:white;
+}
+
+
+
+.container{
+    height:45.5vh;
+    background:linear-gradient(to right, #b24592, #f15f79);
+    padding-left: 3%;
+
+}
+
+.More{
+    height: 25vh;
+}
+
+.info{
+    font-size: 6vh;
+    color: white;
+}
+
+.boring{
+    color:white;
+}
+
+.list{
+    font-size:4vh;
+}
+li{
+    padding:0.8%;
+}
