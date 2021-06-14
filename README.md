@@ -19,7 +19,9 @@
 
 - While data is being fetched and loaded the cards show animation and skeleton structure
 - Order can be directly updated from cart and additions, deletions can be made
-- There are Social Media Icons to enhance Social presence. They are currently not linked due to no socials to link.
+- There are Social Media Icons to enhance Social presence. They are currently not linked due to no socials links.
+
+## Note: Due to problem with Github Hosting refresh may cause issues
 
 # Getting Started with Create React App
 
