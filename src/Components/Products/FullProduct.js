@@ -1,6 +1,6 @@
 import {React} from 'react'
 import styled from 'styled-components'
-
+import {cart} from './Cart';
 
 export default function({props}){
     console.log(props)
@@ -73,6 +73,28 @@ export default function({props}){
     `;
 
     const onClickNone = () => (console.log());
+    const addToCart = (el) => {
+        let flag = 0;
+
+        cart.map(function(item){
+            
+            if (item.id === el.id){
+                flag= 1;
+                item.quantity+=1;
+
+
+            }
+            
+        })
+
+        if (flag === 0){
+            const dict = el;
+            dict.quantity = 1;
+            cart.push(dict);
+        }
+        
+        console.log(cart);
+    };
 
     return(
     <>
@@ -98,7 +120,7 @@ export default function({props}){
                         </FlexBox>
                     </QtyBox>
                     <FlexBox>
-                        <Button>Add to card</Button>
+                        <Button onClick = {() => {addToCart(props)}}>Add to cart</Button>
                     </FlexBox>
                 </DetailBox>
             </FlexBox>
