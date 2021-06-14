@@ -1,12 +1,14 @@
-import { React } from 'react'
+import { React, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import "../../Assets/YUI3.css"
+import {cart} from '../Products/Cart';
 
 
 
 export default function Headers() {
     const midWidth = window.innerWidth-400;
+    let cartTotal = 0;
 
 
     const FlexBoxS = styled.div`
@@ -61,6 +63,15 @@ export default function Headers() {
     const RightHeaderUnit = styled.div`
         margin-right: 20px;
     `;
+
+    const total = () => {
+        cart.map(function (item){
+            cartTotal += item.quantity;
+        })
+        console.log(cartTotal)
+    }
+
+    
     
 
     return(
@@ -81,6 +92,8 @@ export default function Headers() {
                     </FlexBox>
                 </> : <></>}
                 </RightHeader>
+               
+                <button onClick = {total}>{cartTotal}</button>
             </FlexBoxS>
             
         </Header>

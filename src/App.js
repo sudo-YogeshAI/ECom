@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from "./Components/Navigation";
 import Footer from "./Components/Footer";
@@ -10,6 +10,8 @@ import CatProducts from "./Components/CatProducts/CatProducts";
 import Headers from "./Components/Header/Header";
 
 function App() {
+
+  const [cart,setCart] = useState();
   return (
     <div className="App">
       <Router>

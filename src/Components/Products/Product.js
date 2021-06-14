@@ -1,6 +1,8 @@
 import {React, useState } from 'react'
 import styled from 'styled-components'
 import FullProduct from './FullProduct';
+import {cart} from './Cart';
+
 
 export default function ProductCard( {props} ) {
     const [showFull, setShowFull] = useState(false);
@@ -61,18 +63,47 @@ export default function ProductCard( {props} ) {
     )
 
 
+    
+
+    const addToCart = (el) => {
+        let flag = 0;
+
+        cart.map(function(item){
+            
+            if (item.id === el.id){
+                flag= 1;
+                item.quantity+=1;
+
+
+            }
+            
+        })
+
+        if (flag === 0){
+            const dict = el;
+            dict.quantity = 1;
+            cart.push(dict);
+        }
+        
+        console.log(cart);
+    };
+
+
     return(
         <>
         {showFull ? <FullProduct props={{"onClose":onClose,"product":props} } />: <></>}
+        
         <Card>
             <Image><img src={props.img} width="100%" height="100%"/></Image>
             <Text>{props.name}</Text>
             <Price><p>{props.cost}</p></Price>
             <ButtonList>
-                <Button>Add to card</Button>
+                <Button onClick = {() => {addToCart(props)}}>Add to cart</Button>
                 <Button onClick={onClick}>Learn More</Button>
             </ButtonList>
         </Card>
+       
+       
         </>
     );
 }
